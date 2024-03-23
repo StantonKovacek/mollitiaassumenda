@@ -1,0 +1,63 @@
+{
+  "name": "mollitiaassumenda",
+  "version": "1.0.0",
+  "main": "index.js",
+  "description": "A service bus for message-based, distributed node applications",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/StantonKovacek/mollitiaassumenda.git"
+  },
+  "author": "RogerHauck",
+  "license": "MIT",
+  "scripts": {
+    "bootstrap": "lerna bootstrap",
+    "build": "lerna run build",
+    "clean": "lerna run clean && rm -r node_modules",
+    "docs:dev": "vuepress dev",
+    "docs:build": "vuepress build && cp .vuepress/google* docs",
+    "docs:deploy": "./deploy-docs.sh",
+    "lint": "lerna run lint",
+    "test": "yarn test:unit && yarn test:integration",
+    "test:unit": "jest \"(src\\/.+\\.|/)spec\\.ts$\"",
+    "test:unit:watch": "yarn run test:unit --watch",
+    "test:integration": "jest --runInBand \"bus-(core|messages|workflow).*(src\\/.+\\.|/)integration\\.ts$\""
+  },
+  "keywords": [
+    "typescript",
+    "aut",
+    "reiciendis",
+    "fuga",
+    "node"
+  ],
+  "jest": {
+    "preset": "ts-jest",
+    "setupFilesAfterEnv": [
+      "<rootDir>/test/setup.ts"
+    ],
+    "transformIgnorePatterns": [
+      "[/\\\\]node_modules[/\\\\](?!node-ts.+).+\\.ts$"
+    ],
+    "testRegex": "(src\\/.+\\.|/)(integration|spec)\\.ts$",
+    "testEnvironment": "node",
+    "bail": true
+  },
+  "workspaces": [
+    "packages/*"
+  ],
+  "devDependencies": {
+    "@node-ts/code-standards": "^0.0.10",
+    "@types/jest": "^24.0.12",
+    "inversify": "^5.0.1",
+    "jest": "^24.7.1",
+    "lerna": "^3.18.4",
+    "reflect-metadata": "^0.1.13",
+    "ts-jest": "^25.1.0",
+    "tslib": "^1.9.3",
+    "typescript": "^3.3.3",
+    "vuepress": "^1.1.0",
+    "vuepress-plugin-sitemap": "^2.1.2"
+  },
+  "bugs": {
+    "url": "https://github.com/StantonKovacek/mollitiaassumenda.git/issues"
+  }
+}
